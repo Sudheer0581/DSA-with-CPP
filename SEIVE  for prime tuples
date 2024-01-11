@@ -1,0 +1,47 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+long long N=1e6+2;
+vector<int>Primes(N,1);
+void seive(){
+    Primes[0]=0;
+    Primes[1]=0;
+    for(int i=2;i*i<=N;i++){
+        if(Primes[i]==1){
+            for(int j=i*i;j<=N;j+=i)
+            {
+                Primes[j]=0;
+            }
+        }
+        
+    }
+    // for(int i=0;i<N;i++){
+    //     if(Primes[i]){
+    //         v.push_back(i);
+    //     }
+    // }
+}
+
+
+int main() {
+	// your code goes here
+	int t;
+	cin>>t;
+	seive();
+	while(t--){
+	    int x;
+	    cin>>x;
+	    int c=0;
+	    for(int i=3;i<=x;i++){
+	        if(Primes[i]){
+	            int z=2+i;
+	           // cout<<z;
+	            if(z<=x and Primes[z]){
+	                c+=1;
+	            }
+	        }
+	    }
+	    cout<<c<<endl;
+	}
+
+}
